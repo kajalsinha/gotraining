@@ -50,17 +50,17 @@ func main() {
 	}
 
 	topic := "president"
-	n := find(topic, docs)
-	// n := findConcurrent(topic, docs)
-	// n := findConcurrentSem(topic, docs)
-	// n := findNumCPU(topic, docs)
-	// n := findNumCPUTasks(topic, docs)
-	// n := findActor(topic, docs)
+	n := freq(topic, docs)
+	// n := freqConcurrent(topic, docs)
+	// n := freqConcurrentSem(topic, docs)
+	// n := freqNumCPU(topic, docs)
+	// n := freqNumCPUTasks(topic, docs)
+	// n := freqActor(topic, docs)
 
 	log.Printf("Searching %d files, found %s %d times.", len(docs), topic, n)
 }
 
-func find(topic string, docs []string) int {
+func freq(topic string, docs []string) int {
 	var found int
 
 	for _, doc := range docs {
@@ -70,14 +70,13 @@ func find(topic string, docs []string) int {
 			log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
 			return 0
 		}
+		defer f.Close()
 
 		data, err := ioutil.ReadAll(f)
 		if err != nil {
-			f.Close()
 			log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
 			return 0
 		}
-		f.Close()
 
 		var d document
 		if err := xml.Unmarshal(data, &d); err != nil {
@@ -100,7 +99,7 @@ func find(topic string, docs []string) int {
 	return found
 }
 
-func findConcurrent(topic string, docs []string) int {
+func freqConcurrent(topic string, docs []string) int {
 	var found int32
 
 	g := len(docs)
@@ -121,14 +120,13 @@ func findConcurrent(topic string, docs []string) int {
 				log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
 				return
 			}
+			defer f.Close()
 
 			data, err := ioutil.ReadAll(f)
 			if err != nil {
-				f.Close()
 				log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
 				return
 			}
-			f.Close()
 
 			var d document
 			if err := xml.Unmarshal(data, &d); err != nil {
@@ -153,7 +151,7 @@ func findConcurrent(topic string, docs []string) int {
 	return int(found)
 }
 
-func findConcurrentSem(topic string, docs []string) int {
+func freqConcurrentSem(topic string, docs []string) int {
 	var found int32
 
 	g := len(docs)
@@ -178,14 +176,13 @@ func findConcurrentSem(topic string, docs []string) int {
 					log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
 					return
 				}
+				defer f.Close()
 
 				data, err := ioutil.ReadAll(f)
 				if err != nil {
-					f.Close()
 					log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
 					return
 				}
-				f.Close()
 
 				var d document
 				if err := xml.Unmarshal(data, &d); err != nil {
@@ -212,7 +209,7 @@ func findConcurrentSem(topic string, docs []string) int {
 	return int(found)
 }
 
-func findNumCPU(topic string, docs []string) int {
+func freqNumCPU(topic string, docs []string) int {
 	var found int32
 
 	g := runtime.NumCPU()
@@ -274,7 +271,7 @@ func findNumCPU(topic string, docs []string) int {
 	return int(found)
 }
 
-func findNumCPUTasks(topic string, docs []string) int {
+func freqNumCPUTasks(topic string, docs []string) int {
 	var found int32
 
 	g := runtime.NumCPU()
@@ -349,7 +346,7 @@ func findNumCPUTasks(topic string, docs []string) int {
 	return int(found)
 }
 
-func findActor(topic string, docs []string) int {
+func freqActor(topic string, docs []string) int {
 	files := make(chan *os.File, 100)
 	go func() {
 		for _, doc := range docs {

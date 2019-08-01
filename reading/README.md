@@ -27,6 +27,7 @@ There is a ton of links to extra reading and videos through out the material. Oc
 
 [The Go Programming Language - Official Announcement](https://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53) - Rob Pike  
 [The Evolution of Go](https://www.youtube.com/watch?v=0ReKdcpNyQg) - Robert Griesmer  
+[Less Is Exponentially More (2012)](https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html) - Rob Pike  
 [Language Design in the Service of Software Engineering](https://talks.golang.org/2012/splash.article) - Rob Pike  
 [A Very Brief History of Computing, 1948-2015](http://www.gresham.ac.uk/lectures-and-events/a-very-brief-history-of-computing-1948-2015) - Martyn Thomas  
 [The Rise and Fall of Minicomputers](http://ethw.org/Rise_and_Fall_of_Minicomputers) - Gordon Bell  
@@ -193,8 +194,9 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [Designing Cluster Schedulers for Internet-Scale Services](https://queue.acm.org/detail.cfm?id=3199609) - Diptanu Gon Choudhury and Timothy Perrett  
 [Observations on Buffering](https://grimoire.ca/dev/buffers) - Owen Grimoire  
 
-### Specter
+### Specter And Other CPU Attacks
 
+[Different CPU attack](https://cpu.fail)  
 [An analysis of side-channels and speculative execution](https://arxiv.org/pdf/1902.05178.pdf) - White Paper  
 [ Hiding Malware in Speculative Execution](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_02B-5_Wampler_paper.pdf) - White Paper  
 
@@ -229,10 +231,16 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [Psychology of Code Readability](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) - Egon Elbre  
 [Divide By Zero](https://www.hillelwayne.com/post/divide-by-zero/) - Hillel Wayne  
 [Secrecy, Authentication, and Public Key Systems](http://www.merkle.com/papers/Thesis1979.pdf) - Ralph Merkle  
+[Tales From The Lunar Module Guidance Computer](https://www.doneyles.com/LM/Tales.html) -- Don Eyles  
 
 ### Must Read
 
 [PRinty# C with ABC](http://www.cs.cmu.edu/~tom7/abc/paper.pdf) - Dr. Tom Murphy VII, Ph.D  
+
+
+### Go 2
+
+[Sydney Golang Meetup - Rob Pike - Go 2 Draft Specifications](https://www.youtube.com/watch?v=RIvL2ONhFBI) - Rob Pike  
 
 ## Mechanical Sympathy
 
